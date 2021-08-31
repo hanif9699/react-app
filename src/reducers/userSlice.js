@@ -6,12 +6,20 @@ const userSlice = createSlice({
     reducers:{
         setUser(state,action){
             const {userId,empName,email}=action.payload;
-            return Object.assign(state,{
+            return Object.assign({},state,{
                 isAuthenticated:true,
                 userId,
                 email,
                 empName
             });
+        },
+        logoutUser(state,action){
+            return Object.assign({},state,{
+                isAuthenticated:false,
+                userId:undefined,
+                email:undefined,
+                empName:undefined
+            })
         }
     }
 });
